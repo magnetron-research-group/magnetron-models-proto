@@ -1,0 +1,69 @@
+[project]
+name = "magnetron-models2"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "magnetron>=0.2.2",
+    "tokenizers>=0.23.3",
+]
+
+[project.scripts]
+magnetron-models2 = "magnetron_models2:main"
+
+[build-system]
+requires = ["uv_build>=0.13.0,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 150
+indent-width = 4
+exclude = [
+    ".venv",
+    "build",
+    "docs",
+    "extern",
+    "test",
+    "tools",
+    "fuzzer",
+    "cmake",
+    "bin",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "UP",
+    "B",
+    "SIM",
+    "PERF",
+    "RUF",
+    "ANN",
+]
+
+ignore = [
+    "E501",
+    "E701",
+    "E702",
+    "ANN401",
+]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+force-single-line = false
+split-on-trailing-comma = false
+
+[tool.ruff.lint.per-file-ignores]
+"setup.py" = ["ANN"]
+"test/**/*.py" = ["ANN"]
+"tests/**/*.py" = ["ANN"]
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+line-ending = "auto"
+skip-magic-trailing-comma = true
+
